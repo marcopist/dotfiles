@@ -1,0 +1,5 @@
+[Default Applications]
+text/markdown=emacs.desktop
+
+[Added Associations]
+text/markdown=emacs.desktop;
