@@ -29,3 +29,4 @@ export PATH=/home/marcopist/.opencode/bin:$PATH
 eval "$(starship init bash)"
 
 . "$HOME/.cargo/env"
+alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
