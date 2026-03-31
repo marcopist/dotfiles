@@ -4,14 +4,12 @@ This repository tracks my home directory configuration files using a bare git re
 
 ## Installation on a new machine
 
-1. Create the alias for your shell:
-   `alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'`
+1. Clone the repository and run the bootstrap script:
+   `git clone git@github.com:YOUR_USERNAME/dotfiles.git /tmp/dotfiles && /tmp/dotfiles/bootstrap.sh`
 
-2. Clone the repository as a bare repo:
-   `git clone --bare <your-repo-url> $HOME/.dotfiles`
+2. The script will:
+   - Clone your repository to `$HOME/.dotfiles`.
+   - Configure the repository to ignore untracked files in your home directory.
+   - Checkout your configuration files into your `$HOME`.
 
-3. Configure the local repository to ignore untracked files:
-   `config config --local status.showUntrackedFiles no`
-
-4. Checkout the configuration files (this will overwrite existing files):
-   `config checkout`
+*WARNING: The `config checkout` command in the bootstrap script will overwrite existing files with the same names in your home directory.*
