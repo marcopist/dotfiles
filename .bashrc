@@ -28,5 +28,7 @@ unset rc
 export PATH=/home/marcopist/.opencode/bin:$PATH
 eval "$(starship init bash)"
 
+export EDITOR=nvim
+
 . "$HOME/.cargo/env"
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
