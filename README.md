@@ -7,7 +7,7 @@ This repository tracks my home directory configuration files using a bare git re
 Run the following command to automatically install your dotfiles:
 
 ```bash
-curl -L https://raw.githubusercontent.com/marcopist/dotfiles/main/bootstrap.sh | bash
+curl -L  https://raw.githubusercontent.com/marcopist/dotfiles/refs/heads/master/bootstrap.sh| bash
 ```
 
 *WARNING: This will clone your dotfiles repository to `$HOME/.dotfiles` and overwrite existing configuration files in your `$HOME` directory.*
