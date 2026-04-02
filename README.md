@@ -5,9 +5,11 @@ This repository tracks my home directory configuration files using a bare git re
 ## Installation on a new machine
 
 1. Clone the repository and run the bootstrap script:
-   `git clone git@github.com:YOUR_USERNAME/dotfiles.git /tmp/dotfiles && /tmp/dotfiles/bootstrap.sh`
+   ```bash
+   git clone https://github.com/marcopist/dotfiles.git /tmp/dotfiles && /tmp/dotfiles/bootstrap.sh
+   ```
 
-2. The script will:
+3. The script will:
    - Clone your repository to `$HOME/.dotfiles`.
    - Configure the repository to ignore untracked files in your home directory.
    - Checkout your configuration files into your `$HOME`.
