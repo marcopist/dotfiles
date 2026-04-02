@@ -6,7 +6,7 @@ This repository tracks my home directory configuration files using a bare git re
 
 1. Clone the repository and run the bootstrap script:
    ```bash
-   git clone git@github.com:marcopist/dotfiles.git /tmp/dotfiles && /tmp/dotfiles/bootstrap.sh
+   git clone https://github.com/marcopist/dotfiles.git /tmp/dotfiles && /tmp/dotfiles/bootstrap.sh
    ```
 
 3. The script will:
