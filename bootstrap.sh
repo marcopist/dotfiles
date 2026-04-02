@@ -3,20 +3,28 @@
 # Bootstrap script to setup dotfiles
 git_dir="$HOME/.dotfiles"
 
-# Define the alias for this session
-alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+# Define the alias function for this session
+dotfiles() {
+    /usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME" "$@"
+}
 
 # Clone the repository as a bare repo if not already cloned
 if [ ! -d "$git_dir" ]; then
     echo "Cloning dotfiles repository..."
-    git clone --bare git@github.com:YOUR_USERNAME/dotfiles.git "$git_dir"
+    # Replace the URL below with your actual repository URL
+    git clone --bare https://github.com/marcopist/dotfiles.git "$git_dir"
 fi
 
 # Configure the local repository to ignore untracked files
-config config --local status.showUntrackedFiles no
+dotfiles config --local status.showUntrackedFiles no
 
 # Checkout the configuration files (WARNING: will overwrite existing files)
 echo "Checking out dotfiles..."
-config checkout
+dotfiles checkout
 
-echo "Dotfiles setup complete. Please restart your shell."
+if [ $? -eq 0 ]; then
+    echo "Dotfiles setup complete. Please restart your shell."
+else
+    echo "Error: Failed to checkout dotfiles. You may have existing files that conflict."
+    echo "Try backing up any existing configuration files that might conflict."
+fi

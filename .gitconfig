@@ -7,3 +7,5 @@
 [user]
 	name = marcopist
 	email = pistilli.mrc@gmail.com
+[pull]
+	rebase = false
