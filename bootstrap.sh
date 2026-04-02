@@ -20,7 +20,7 @@ dotfiles config --local status.showUntrackedFiles no
 
 # Checkout the configuration files (WARNING: will overwrite existing files)
 echo "Checking out dotfiles..."
-dotfiles checkout
+dotfiles checkout -f
 
 if [ $? -eq 0 ]; then
     echo "Dotfiles setup complete. Please restart your shell."
