@@ -21,7 +21,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Configure plugins
 require("lazy").setup({
-  { "scottmckendry/cyberdream.nvim", name = "cyberdream", priority = 1000 },
+  { "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000 },
   { "neovim/nvim-lspconfig" },
   {
     "hrsh7th/nvim-cmp",
@@ -62,7 +62,8 @@ require("lazy").setup({
 })
 
 -- Enable theme
-vim.cmd.colorscheme("cyberdream")
+vim.opt.termguicolors = true
+vim.cmd.colorscheme("moonfly")
 
 -- Diagnostic configuration
 vim.diagnostic.config({
