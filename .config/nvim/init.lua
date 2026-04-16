@@ -59,6 +59,10 @@ require("lazy").setup({
       vim.lsp.enable("clangd")
     end,
   },
+  {
+    "sphamba/smear-cursor.nvim",
+    opts = {},
+  },
 })
 
 -- Enable theme
