@@ -56,9 +56,30 @@ require("lazy").setup({
         cmd = { "clangd" },
         root_markers = { ".clangd", ".clang-format", "compile_commands.json", "compile_flags.txt", ".git" },
       })
-      vim.lsp.enable("clangd")
-    end,
-  },
+        vim.lsp.enable("clangd")
+        
+        vim.lsp.config("ruff", {
+          cmd = { "ruff", "server" },
+          filetypes = { "python" },
+          root_markers = { "pyproject.toml", "ruff.toml", ".git" },
+        })
+        vim.lsp.enable("ruff")
+        
+        vim.lsp.config("basedpyright", {
+          cmd = { "basedpyright-langserver", "--stdio" },
+          filetypes = { "python" },
+          root_markers = { "pyproject.toml", "ruff.toml", ".git" },
+          settings = {
+            basedpyright = {
+              analysis = {
+                typeCheckingMode = "standard",
+              },
+            },
+          },
+        })
+        vim.lsp.enable("basedpyright")
+      end,
+    },
   {
     "sphamba/smear-cursor.nvim",
     opts = {},
