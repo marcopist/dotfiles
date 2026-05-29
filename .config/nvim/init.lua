@@ -58,13 +58,6 @@ require("lazy").setup({
       })
         vim.lsp.enable("clangd")
         
-        vim.lsp.config("ruff", {
-          cmd = { "ruff", "server" },
-          filetypes = { "python" },
-          root_markers = { "pyproject.toml", "ruff.toml", ".git" },
-        })
-        vim.lsp.enable("ruff")
-        
         vim.lsp.config("basedpyright", {
           cmd = { "basedpyright-langserver", "--stdio" },
           filetypes = { "python" },
