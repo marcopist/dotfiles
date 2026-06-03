@@ -1,4 +1,5 @@
-# Starship prompt config - sleek and modern
+# Starship prompt config - Moonfly theme aligned
+# Colors from Moonfly palette: https://github.com/bluz71/vim-moonfly-colors
 
 # Add a blank line before each prompt
 add_newline = true
@@ -22,7 +23,7 @@ $character"""
 [nix_shell]
 symbol = "❄️ "
 format = "[$symbol$state( \\($name\\))]($style) "
-style = "bold blue"
+style = "bold #80a0ff"
 impure_msg = "impure"
 pure_msg = "pure"
 
@@ -30,62 +31,62 @@ pure_msg = "pure"
 [directory]
 truncation_length = 3
 truncate_to_repo = true
-style = "bold cyan"
+style = "bold #79dac8"
 
 # Git branch - show only if in a repo
 [git_branch]
 symbol = " "
 format = "[$symbol$branch]($style) "
-style = "bold purple"
+style = "bold #cf87e8"
 
 # Git status - compact
 [git_status]
 format = "([$all_status$ahead_behind]($style) )"
-style = "bold red"
+style = "bold #ff5454"
 ahead = "⇡${count}"
 behind = "⇣${count}"
 diverged = "⇕⇡${ahead_count}⇣${behind_count}"
 
 # Command character
 [character]
-success_symbol = "[❯](bold green)"
-error_symbol = "[❯](bold red)"
+success_symbol = "[❯](#8cc85f bold)"
+error_symbol = "[❯](#ff5454 bold)"
 
 # Language modules - show when relevant
 [rust]
 symbol = "🦀 "
 format = "[$symbol]($style)"
-style = "bold red"
+style = "bold #ff5454"
 
 [golang]
 symbol = "🐹 "
 format = "[$symbol]($style)"
-style = "bold cyan"
+style = "bold #79dac8"
 
 [python]
 symbol = "🐍 "
 format = "[$symbol]($style)"
-style = "bold blue"
+style = "bold #80a0ff"
 
 [nodejs]
 symbol = " "
 format = "[$symbol]($style)"
-style = "bold green"
+style = "bold #8cc85f"
 
 # Command duration - show if took more than 500ms
 [cmd_duration]
 min_time = 500
 format = "[took $duration]($style) "
-style = "bold yellow"
+style = "bold #e3c78a"
 
 # Username - always show
 [username]
 show_always = true
 format = "[$user]($style_user) "
-style_user = "bold green"
+style_user = "bold #8cc85f"
 
 # Hostname - always show
 [hostname]
 ssh_only = false
 format = "[@$hostname]($style) "
-style = "bold dimmed green"
+style = "#696969"
