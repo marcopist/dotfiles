@@ -1,6 +1,7 @@
 vim.g.mapleader = " "
 vim.g.python3_host_prog = vim.fn.exepath("python3")
 
+
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.shiftwidth = 4    -- Size of an indent
@@ -110,11 +111,13 @@ require("lazy").setup({
     keys = {
       { "<leader>mi", "<cmd>MoltenInit<cr>",              desc = "Molten: init kernel" },
       { "<leader>ml", "<cmd>MoltenEvaluateLine<cr>",      desc = "Molten: run line" },
-      { "<leader>mr", "<cmd>MoltenReevaluateCell<cr>",    desc = "Molten: re-run cell" },
+      { "<leader>mr", "<cmd>MoltenRestart!<cr>",            desc = "Molten: restart kernel" },
       { "<leader>mv", "<cmd>MoltenEvaluateVisual<cr>",    desc = "Molten: run visual", mode = "v" },
       { "<leader>md", "<cmd>MoltenDelete<cr>",            desc = "Molten: delete output" },
       { "<leader>mh", "<cmd>MoltenHideOutput<cr>",        desc = "Molten: hide output" },
       { "<leader>ms", "<cmd>MoltenShowOutput<cr>",        desc = "Molten: show output" },
+      { "<leader>mx", "<cmd>MoltenInterrupt<cr>",         desc = "Molten: interrupt kernel" },
+      { "<leader>me", "<cmd>MoltenEnterOutput<cr>",       desc = "Molten: enter output" },
     },
     config = function()
       -- Cell navigation: jump between # %% markers
@@ -155,6 +158,15 @@ require("lazy").setup({
           end
         end
       end, { desc = "Molten: run all cells" })
+
+      vim.api.nvim_create_autocmd("BufWinEnter", {
+        pattern = "*",
+        callback = function()
+          if vim.bo.filetype == "molten_output" then
+            vim.cmd("normal! G")
+          end
+        end,
+      })
     end,
   },
 })

@@ -16,7 +16,7 @@ setopt NOBEEP
 setopt NUMERIC_GLOB_SORT  # sort file10 after file9, not after file1
 
 # Initialize zoxide
-eval "$(zoxide init zsh)"
+command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
 
 # Load completion system
 autoload -Uz compinit
@@ -32,18 +32,31 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'  # lowercase input matches upper and lower
 
 # Fuzzy finder
-source <(fzf --zsh)
+command -v fzf &>/dev/null && source <(fzf --zsh)
 
 # Prompt -> Starship
-eval "$(starship init zsh)"
+if command -v starship &>/dev/null; then
+    eval "$(starship init zsh)"
+else
+    if [[ -n "$CONTAINER_ID" ]]; then
+        PS1='%n@%m (%F{yellow}'"$CONTAINER_ID"'%f) %1~ %# '
+    else
+        PS1='%n@%m %1~ %# '
+    fi
+fi
 
 # Dotfiles management
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # ls -> eza
-alias ls='eza -lah --git --group-directories-first'
-alias ll='eza -lah --git'
-alias tree='eza --tree'
+if command -v eza &>/dev/null; then
+    alias ls='eza -lah --git --group-directories-first'
+    alias ll='eza -lah --git'
+    alias tree='eza --tree'
+else
+    alias ls='ls -lah'
+    alias ll='ls -lah'
+fi
 
 # bun completions
 [ -s "/home/marcopist/.bun/_bun" ] && source "/home/marcopist/.bun/_bun"
