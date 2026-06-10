@@ -35,7 +35,7 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'  # lowercase input matches upper and lower
 
 # Fuzzy finder
-command -v fzf &>/dev/null && source <(fzf --zsh)
+command -v fzf &>/dev/null && source <(fzf --zsh 2>/dev/null) 2>/dev/null || true
 
 # Prompt -> Starship
 if command -v starship &>/dev/null; then
