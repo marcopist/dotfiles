@@ -64,3 +64,6 @@ fi
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Activate Python virtual environment (default: .venv)
+venv() { source "${1:-.venv}/bin/activate"; }
