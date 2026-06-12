@@ -24,9 +24,14 @@ if [ -d ~/.bashrc.d ]; then
 fi
 unset rc
 
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
 # opencode
 export PATH=/home/marcopist/.opencode/bin:$PATH
 eval "$(starship init bash)"
+
+
 
 export EDITOR=nvim
 

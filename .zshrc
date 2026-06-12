@@ -2,6 +2,9 @@ HISTFILE="$XDG_STATE_HOME/zsh/history"
 HISTSIZE=100000
 SAVEHIST=100000
 
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
 setopt APPEND_HISTORY
 setopt SHARE_HISTORY
 setopt HIST_IGNORE_DUPS
@@ -32,7 +35,7 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'  # lowercase input matches upper and lower
 
 # Fuzzy finder
-command -v fzf &>/dev/null && source <(fzf --zsh)
+command -v fzf &>/dev/null && source <(fzf --zsh 2>/dev/null) 2>/dev/null || true
 
 # Prompt -> Starship
 if command -v starship &>/dev/null; then
