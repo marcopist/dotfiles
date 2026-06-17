@@ -75,6 +75,13 @@ require("lazy").setup({
           },
         })
         vim.lsp.enable("basedpyright")
+
+        vim.lsp.config("hls", {
+          cmd = { "haskell-language-server-wrapper", "--lsp" },
+          filetypes = { "haskell", "lhaskell", "cabal" },
+          root_markers = { "hie.yaml", "cabal.project", "cabal.project.local", "*.cabal", "stack.yaml", ".git" },
+        })
+        vim.lsp.enable("hls")
       end,
     },
   {
@@ -90,6 +97,7 @@ require("lazy").setup({
     "sphamba/smear-cursor.nvim",
     opts = {},
   },
+
   {
     "3rd/image.nvim",
     build = false,

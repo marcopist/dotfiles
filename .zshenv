@@ -28,3 +28,5 @@ export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship.toml"
 # ---------- PATH ----------
 # Personal binaries/scripts
 export PATH="$HOME/.local/bin:$HOME/.opencode/bin:$PATH"
+
+if [ -e /home/marcopist/.nix-profile/etc/profile.d/nix.sh ]; then . /home/marcopist/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

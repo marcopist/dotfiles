@@ -68,5 +68,10 @@ fi
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+# cargo
+[[ -d "$HOME/.cargo/bin" ]] && export PATH="$HOME/.cargo/bin:$PATH"
+
 # Activate Python virtual environment (default: .venv)
 venv() { source "${1:-.venv}/bin/activate"; }
+
+[ -f "/home/marcopist/.ghcup/env" ] && . "/home/marcopist/.ghcup/env" # ghcup-env
