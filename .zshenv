@@ -30,3 +30,10 @@ export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship.toml"
 export PATH="$HOME/.local/bin:$HOME/.opencode/bin:$PATH"
 
 if [ -e /home/marcopist/.nix-profile/etc/profile.d/nix.sh ]; then . /home/marcopist/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+# ---------- SSH tmux ----------
+# Give interactive SSH logins a persistent workspace. `-A` attaches to the
+# existing session or creates it when it is not present.
+if [[ -o interactive && -n "$SSH_TTY" && -z "$TMUX" ]] && command -v tmux >/dev/null 2>&1; then
+  exec tmux new-session -A -s base
+fi
